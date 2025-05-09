@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html id="app" lang="en" dir="ltr">
+<head>
+  <!-- Iestata rakstzīmju kodējumu lapai -->
+  <meta charset="utf-8">
+  
+  <!-- Lapas nosaukums, kas tiek rādīts pārlūkprogrammas cilnē -->
+  <title>Login - Spotify</title>
+  
+  <!-- Skata iestatījumi, lai padarītu lapu atbilstošu dažādām ierīcēm -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <!-- Norāda bāzes URL relatīvajiem saitiem -->
+  <base href="/">
+
+  <!-- Favicon, kas tiek rādīts pārlūkprogrammas cilnē -->
+  <link rel="icon" href="https://accounts.scdn.co/sso/images/favicon.ace4d8543bbb017893402a1e9d1ac1fa.ico">
+  
+  <!-- Ārējais skripts, kas nodrošina pieteikšanās funkcionalitāti -->
+  <script defer src="https://accounts.scdn.co/sso/js/indexReact.6f123090cbdb1cfc9123.js" sp-bootstrap></script>
+  
+  <!-- Iebūvēta metadatu informācija, kas tiek izmantota pieteikšanās komponentēm (piemēram, lietotāja stāvoklis, funkciju karodziņi) -->
+  <meta id="bootstrap-data" sp-bootstrap-data='{"phoneFeatureEnabled":false,"previewEnabled":false,"user":false,...}' sp-component="login" sp-translations-data='eyJlcnJv...'>
+  
+  <!-- Iebūvēts CSS stils, lai noformētu lapu -->
+  <style>
+    /* Piemēro tumšu fona krāsu ķermenim */
+    body {
+      background-color: #121212;
+      margin: 0;
+    }
+
+    /* Nodrošina, ka saknes konteineram ir vismaz pilns augstums */
+    #root {
+      min-height: 100vh;
+    }
+
+    /* Stils ielādes indikatora konteineram */
+    .loading-indicator-container {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Piemēro box-sizing visiem bērnelementiem ielādes konteinerā */
+    .loading-indicator-container * {
+      box-sizing: border-box;
+    }
+
+    /* Definē izmērus un formu ielādes indikatoram */
+    .loading-indicator {
+      content: "";
+      width: 56px;
+      inline-size: 56px;
+      block-size: 12.4px;
+      height: 12.4px;
+      overflow-clip-margin: content-box;
+      overflow: hidden;
+    }
+
+    /* Stils katram aplim iekšējos ielādes indikatorā */
+    .loading-indicator circle {
+      fill: white;
+      animation: loading-indicator-kf 1.32s linear infinite;
+      transform-origin: center center;
+      opacity: 0.5;
+    }
+
+    /* Aizkavē otrā un trešā apļa animāciju, lai radītu efektu */
+    .loading-indicator circle:nth-of-type(2) {
+      animation-delay: 0.1s;
+    }
+    .loading-indicator circle:nth-of-type(3) {
+      animation-delay: 0.2s;
+    }
+
+    /* Keyframe animācija ielādes indikatora pulsējošajam efektam */
+    @keyframes loading-indicator-kf {
+      0% {
+        animation-timing-function: cubic-bezier(1, 0, 0.7, 1);
+        opacity: 0.5;
+        transform: scale(1);
+      }
+      40% {
+        animation-timing-function: cubic-bezier(0.3, 0, 0, 1);
+        opacity: 0.75;
+        transform: scale(1.3);
+      }
+      72.5% {
+        animation-timing-function: linear;
+        opacity: 0.5;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body class="encore-dark-theme encore-layout-themes">
+  <!-- Galvenais saknes konteineris aplikācijai -->
+  <div id="root">
+    <!-- Konteiners ielādes rotācijas indikatoram -->
+    <div class="loading-indicator-container">
+      <!-- SVG elements, kas attēlo ielādes rotācijas indikatoru -->
+      <svg class="loading-indicator" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1 100" xml:space="preserve" role="progressbar" aria-valuetext="Loading">
+        <!-- Trīs apļi, kas veido ielādes indikatoru -->
+        <circle stroke="none" cx="-140" cy="50" r="32"></circle>
+        <circle stroke="none" cx="0" cy="50" r="32"></circle>
+        <circle stroke="none" cx="140" cy="50" r="32"></circle>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
